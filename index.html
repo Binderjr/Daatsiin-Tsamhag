@@ -19,8 +19,9 @@
     }
 
     .stage {
-      width: 60vmin;
-      height: 60vmin;
+      position: relative;
+      width: 480px;
+      height: 480px;
     }
 
     .center {
@@ -44,7 +45,8 @@
       color: #cbd5f5;
     }
 
-    .center a {
+    .center a.main {
+      display: inline-block;
       padding: 10px 20px;
       background: #2563eb;
       color: #ffffff;
@@ -53,10 +55,31 @@
       font-weight: 600;
     }
 
+    .social {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social img {
+      width: 20px;
+      height: 20px;
+    }
+
     .orbit {
       position: absolute;
       inset: 0;
-      animation: spin 30s linear infinite;
     }
 
     .orbit img {
@@ -65,22 +88,41 @@
       height: 64px;
       border-radius: 50%;
       object-fit: cover;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.25),
+        0 0 12px rgba(37,99,235,0.6),
+        0 0 24px rgba(37,99,235,0.35);
     }
 
-    .orbit img:nth-child(1) { top: 0%; left: 50%; transform: translateX(-50%); }
-    .orbit img:nth-child(2) { top: 50%; right: 0%; transform: translateY(-50%); }
-    .orbit img:nth-child(3) { bottom: 0%; left: 50%; transform: translateX(-50%); }
-    .orbit img:nth-child(4) { top: 50%; left: 0%; transform: translateY(-50%); }
+    .orbit img:nth-child(1) {
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .orbit img:nth-child(2) {
+      top: 50%;
+      right: -24px;
+      transform: translateY(-50%);
+    }
+
+    .orbit img:nth-child(3) {
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orbit img:nth-child(4) {
+      top: 50%;
+      left: -24px;
+      transform: translateY(-50%);
     }
   </style>
 </head>
 <body>
 
   <div class="stage">
+
     <div class="orbit">
       <img src="images/img1.jpg" alt="">
       <img src="images/img2.jpg" alt="">
@@ -95,11 +137,23 @@
           Website update in progress.<br>
           Visit our main site below.
         </p>
-        <a href="https://daatsiintsamkhag.mn" target="_blank">
+
+        <a class="main" href="https://daatsiintsamkhag.mn" target="_blank">
           Visit daatsiintsamkhag.mn
         </a>
+
+        <div class="social">
+          <a href="https://facebook.com/YOUR_PAGE" target="_blank" aria-label="Facebook">
+            <img src="https://raw.githubusercontent.com/CLorant/readme-social-icons/main/size/medium-light/facebook.svg" alt="Facebook">
+          </a>
+
+          <a href="https://instagram.com/YOUR_PAGE" target="_blank" aria-label="Instagram">
+            <img src="https://raw.githubusercontent.com/CLorant/readme-social-icons/main/size/medium-light/instagram.svg" alt="Instagram">
+          </a>
+        </div>
       </div>
     </div>
+
   </div>
 
 </body>
