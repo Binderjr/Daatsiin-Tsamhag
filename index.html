@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="images/logo.png">
   <meta charset="UTF-8" />
   <title>Daatsiin Tsamkhag</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +47,19 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
+    .logo-link {
+      display: inline-block;
+    }
+
+    .logo-link:hover .logo-wrap {
+      box-shadow: 0 12px 36px rgba(37,99,235,0.45);
+      transform: scale(1.02);
+    }
+
+    .logo-wrap {
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
     .logo {
       width: 220px;
     }
@@ -74,8 +88,8 @@
     }
 
     .social a {
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
       display: flex;
@@ -84,8 +98,8 @@
     }
 
     .social img {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
     }
 
     .cross {
@@ -95,40 +109,38 @@
 
     .cross img {
       position: absolute;
-      width: 72px;
-      height: 72px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       animation: glow 3.5s ease-in-out infinite;
+      will-change: box-shadow;
     }
 
     .cross img:nth-child(1) {
-      top: -36px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: -30px;
+      left: -30px;
       animation-delay: 0s;
     }
 
     .cross img:nth-child(2) {
-      right: -36px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: -30px;
+      right: -30px;
       animation-delay: 0.8s;
     }
 
     .cross img:nth-child(3) {
-      bottom: -36px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: -30px;
+      right: -30px;
       animation-delay: 1.6s;
     }
 
     .cross img:nth-child(4) {
-      left: -36px;
-      top: 50%;
-      transform: translateY(-50%);
+      bottom: -30px;
+      left: -30px;
       animation-delay: 2.4s;
     }
+
 
     @keyframes glow {
       0% {
@@ -166,25 +178,30 @@
     <div class="center">
       <div>
 
-        <div class="logo-wrap">
-          <img src="images/logo.png" alt="Daatsiin Tsamkhag Logo" class="logo">
-        </div>
+        <a href="https://daatsiintsamkhag.mn"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Daatsiin Tsamkhag main website"
+          class="logo-link">
+          <div class="logo-wrap">
+            <img src="images/logo.png" alt="Daatsiin Tsamkhag company logo" class="logo">
+          </div>
+        </a>
 
         <p>
-          Website update in progress.<br>
-          Visit our main site below.
+          Our Global website is in progress.<br> Please visit our main site below.
         </p>
 
         <a class="main" href="https://daatsiintsamkhag.mn" target="_blank">
-          Visit daatsiintsamkhag.mn
+          Click here to visit our main site.
         </a>
 
         <div class="social">
-          <a href="https://facebook.com/YOUR_PAGE" target="_blank">
+          <a href="https://www.facebook.com/WWW.Furniture.factory" target="_blank">
             <img src="images/fb.png" alt="Facebook">
           </a>
           <a href="https://www.instagram.com/daatsiintsamkhagrp/" target="_blank">
-            <img src="images/ig.png" alt="Instagram">
+            <img src="images/ig.webp" alt="Instagram">
           </a>
         </div>
 
