@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daatsiin Tsamkhag</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: relative;
+      width: 360px;
+      height: 360px;
+    }
+
+    .center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .center h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .center p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #cbd5f5;
+    }
+
+    .center a {
+      padding: 10px 20px;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 0;
+      animation: spin 30s linear infinite;
+    }
+
+    .orbit img {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .orbit img:nth-child(1) { top: 0%; left: 50%; transform: translateX(-50%); }
+    .orbit img:nth-child(2) { top: 50%; right: 0%; transform: translateY(-50%); }
+    .orbit img:nth-child(3) { bottom: 0%; left: 50%; transform: translateX(-50%); }
+    .orbit img:nth-child(4) { top: 50%; left: 0%; transform: translateY(-50%); }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="orbit">
+      <img src="images/img1.jpg" alt="">
+      <img src="images/img2.jpg" alt="">
+      <img src="images/img3.jpg" alt="">
+      <img src="images/img4.jpg" alt="">
+    </div>
+
+    <div class="center">
+      <div>
+        <h1>Daatsiin Tsamkhag</h1>
+        <p>
+          Website update in progress.<br>
+          Visit our main site below.
+        </p>
+        <a href="https://daatsiintsamkhag.mn" target="_blank">
+          Visit daatsiintsamkhag.mn
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
