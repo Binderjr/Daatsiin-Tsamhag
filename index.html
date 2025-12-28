@@ -20,8 +20,8 @@
 
     .stage {
       position: relative;
-      width: 480px;
-      height: 480px;
+      width: 520px;
+      height: 520px;
     }
 
     .center {
@@ -34,9 +34,9 @@
       z-index: 2;
     }
 
-    .center h1 {
-      font-size: 28px;
-      margin-bottom: 12px;
+    .logo {
+      width: 120px;
+      margin-bottom: 16px;
     }
 
     .center p {
@@ -47,7 +47,7 @@
 
     .center a.main {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 10px 22px;
       background: #2563eb;
       color: #ffffff;
       text-decoration: none;
@@ -77,45 +77,67 @@
       height: 20px;
     }
 
-    .orbit {
+    .cross {
       position: absolute;
       inset: 0;
     }
 
-    .orbit img {
+    .cross img {
       position: absolute;
-      width: 64px;
-      height: 64px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.25),
-        0 0 12px rgba(37,99,235,0.6),
-        0 0 24px rgba(37,99,235,0.35);
+      animation: glow 3.5s ease-in-out infinite;
     }
 
-    .orbit img:nth-child(1) {
-      top: -24px;
+    .cross img:nth-child(1) {
+      top: -36px;
       left: 50%;
       transform: translateX(-50%);
+      animation-delay: 0s;
     }
 
-    .orbit img:nth-child(2) {
+    .cross img:nth-child(2) {
+      right: -36px;
       top: 50%;
-      right: -24px;
       transform: translateY(-50%);
+      animation-delay: 0.8s;
     }
 
-    .orbit img:nth-child(3) {
-      bottom: -24px;
+    .cross img:nth-child(3) {
+      bottom: -36px;
       left: 50%;
       transform: translateX(-50%);
+      animation-delay: 1.6s;
     }
 
-    .orbit img:nth-child(4) {
+    .cross img:nth-child(4) {
+      left: -36px;
       top: 50%;
-      left: -24px;
       transform: translateY(-50%);
+      animation-delay: 2.4s;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow:
+          0 0 0 2px rgba(255,255,255,0.15),
+          0 0 8px rgba(37,99,235,0.25),
+          0 0 16px rgba(37,99,235,0.15);
+      }
+      50% {
+        box-shadow:
+          0 0 0 2px rgba(255,255,255,0.35),
+          0 0 18px rgba(37,99,235,0.7),
+          0 0 36px rgba(37,99,235,0.45);
+      }
+      100% {
+        box-shadow:
+          0 0 0 2px rgba(255,255,255,0.15),
+          0 0 8px rgba(37,99,235,0.25),
+          0 0 16px rgba(37,99,235,0.15);
+      }
     }
   </style>
 </head>
@@ -123,7 +145,7 @@
 
   <div class="stage">
 
-    <div class="orbit">
+    <div class="cross">
       <img src="images/img1.jpg" alt="">
       <img src="images/img2.jpg" alt="">
       <img src="images/img3.jpg" alt="">
@@ -132,7 +154,8 @@
 
     <div class="center">
       <div>
-        <h1>Daatsiin Tsamkhag</h1>
+        <img src="images/logo.svg" alt="Daatsiin Tsamkhag Logo" class="logo">
+
         <p>
           Website update in progress.<br>
           Visit our main site below.
@@ -143,11 +166,10 @@
         </a>
 
         <div class="social">
-          <a href="https://facebook.com/YOUR_PAGE" target="_blank" aria-label="Facebook">
+          <a href="https://facebook.com/YOUR_PAGE" target="_blank">
             <img src="https://raw.githubusercontent.com/CLorant/readme-social-icons/main/size/medium-light/facebook.svg" alt="Facebook">
           </a>
-
-          <a href="https://instagram.com/YOUR_PAGE" target="_blank" aria-label="Instagram">
+          <a href="https://instagram.com/YOUR_PAGE" target="_blank">
             <img src="https://raw.githubusercontent.com/CLorant/readme-social-icons/main/size/medium-light/instagram.svg" alt="Instagram">
           </a>
         </div>
