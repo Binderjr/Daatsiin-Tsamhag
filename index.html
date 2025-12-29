@@ -292,6 +292,18 @@
     }, 400);
   }
 
+fetch("/components/footer/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer-placeholder").innerHTML = html;
+  });
+
+const footerCss = document.createElement("link");
+footerCss.rel = "stylesheet";
+footerCss.href = "/components/footer/footer.css";
+document.head.appendChild(footerCss);
+
+
   /* ===== SOCIAL COMPONENT LOAD ===== */
 
     fetch("/components/social-btn/social-btn.html")
@@ -306,6 +318,6 @@
 <footer class="site-footer">
   Daatsiin Tsamkhag Group © 2025
 </footer>
-
+<div id="footer-placeholder"></div>
 </body>
 </html>
