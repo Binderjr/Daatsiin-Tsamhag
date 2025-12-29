@@ -173,6 +173,19 @@
   display: block;
 }
 
+.site-footer {
+  position: fixed;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+  z-index: 30;
+  pointer-events: none;
+}
+
+
 /* Hover reaction */
 .lang-grid button:hover {
   background: linear-gradient(
@@ -278,14 +291,18 @@
 
   /* ===== SOCIAL COMPONENT LOAD ===== */
 
-  fetch("/components/social-btn/social-btn.html")
-    .then(r => r.text())
+    fetch("/components/social-btn/social-btn.html")
+    .then(res => res.text())
     .then(html => {
-      document.getElementById("social-placeholder").innerHTML = html;
+      document.getElementById("social-btn-root").innerHTML = html;
     });
 </script>
 
 <div id="social-placeholder"></div>
+<div id="social-btn-root"></div>
+<footer class="site-footer">
+  Daatsiin Tsamkhag Group © 2025
+</footer>
 
 </body>
 </html>
