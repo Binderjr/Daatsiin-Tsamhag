@@ -1,0 +1,102 @@
+.visual {
+  position: absolute;
+  width: min(22vw, 110px);
+  aspect-ratio: 1 / 1;
+}
+
+.visual-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.visual-glow {
+  position: absolute;
+  inset: -25%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.visual-glow object {
+  width: 100%;
+  height: 100%;
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* desktop default */
+.visual.tl { top: -30px; left: -30px; }
+.visual.tr { top: -30px; right: -30px; }
+.visual.br { bottom: -30px; right: -30px; }
+.visual.bl { bottom: -30px; left: -30px; }
+
+/* mobile / fold / square */
+@media (max-width: 640px) {
+  .visual {
+    width: min(28vw, 96px);
+  }
+
+  .visual.tl { top: 3%; left: 3%; }
+  .visual.tr { top: 3%; right: 3%; }
+  .visual.br { bottom: 3%; right: 3%; }
+  .visual.bl { bottom: 3%; left: 3%; }
+}
+
+.visual {
+  cursor: pointer;
+}
+
+/* base glow state */
+.visual-glow {
+  opacity: 0.65;
+  transform: scale(1);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* hover / focus enhancement */
+.visual:hover .visual-glow,
+.visual:focus-within .visual-glow {
+  opacity: 1;
+  transform: scale(1.18);
+}
+
+/* image micro response */
+.visual-media {
+  transition: transform 0.35s ease;
+}
+
+.visual:hover .visual-media {
+  transform: scale(1.04);
+}
+
+/* mobile behavior: continuous soft pulse */
+@media (hover: none) {
+  .visual-glow {
+    animation: glowPulse 3.6s ease-in-out infinite;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}

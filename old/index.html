@@ -2,29 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Daatsiin Tsamkhag Group LLC</title>
+  <title>Daatsiin Tsamkhag</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@900&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
 
-  <!-- Components -->
+  <!-- SOCIAL COMPONENT -->
   <link rel="stylesheet" href="/components/social-btn/social-btn.css">
 
   <style>
     :root {
-      --bg: #0b0b0b;
-      --brand-orange: #ff8c1a;
+      --bg-dark: #000000;
+      --bg-mid: #0b0b0b;
+      --orange: #f97316;
       --white: #ffffff;
     }
 
     body {
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
       background: radial-gradient(
         circle at top,
-        #1a1a1a,
-        var(--bg) 65%
+        #1a1a1a 0%,
+        var(--bg-mid) 60%,
+        var(--bg-dark) 100%
       );
       display: flex;
       align-items: center;
@@ -33,69 +35,71 @@
       overflow: hidden;
     }
 
-    /* ===== TRANSITION OVERLAY ===== */
+    /* ===== PAGE TRANSITION ===== */
 
     #page-transition {
       position: fixed;
       inset: 0;
-      background: var(--white);
+      background: white;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.35s ease;
       z-index: 999;
     }
 
-    /* ===== STAGE ===== */
+    /* ===== CENTER STAGE ===== */
 
     .stage {
       width: min(520px, 92vw);
-      aspect-ratio: 1 / 1;
+      height: min(520px, 92vw);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
 
     .logo-block {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      width: 100%;
+      gap: 18px;
     }
 
-    /* ===== LOGO ===== */
+    /* ===== LOGO + GLOW ===== */
 
     .visual {
       position: relative;
-      width: clamp(180px, 42vw, 240px);
-      aspect-ratio: 1 / 1;
+      width: 240px;
+      height: 240px;
       border-radius: 28%;
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .visual-glow {
       position: absolute;
-      inset: -20px;
+      inset: -22px;
       border-radius: 32%;
       background: radial-gradient(
         circle,
-        rgba(255,140,26,0.6),
+        rgba(249,115,22,0.55),
         transparent 70%
       );
       filter: blur(22px);
-      opacity: 0.65;
-      transition: transform 0.35s ease, opacity 0.35s ease;
+      opacity: 0.7;
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
     .visual-media {
-      background: var(--white);
-      border-radius: 28%;
       width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
+      background: white;
+      border-radius: 28%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: 0 14px 34px rgba(0,0,0,0.45);
       position: relative;
       z-index: 1;
@@ -104,31 +108,46 @@
 
     .visual img {
       width: 85%;
-      height: auto;
     }
 
     .visual:hover .visual-glow {
       opacity: 1;
-      transform: scale(1.15);
+      transform: scale(1.18);
     }
 
     .visual:hover .visual-media {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
-    /* ===== MESSAGE ===== */
+    /* ===== TEXT ===== */
 
-    .hint-wrap {
-      height: 64px;
-      display: grid;
-      place-items: center;
-    }
+.hint-wrap {
+  height: 64px;
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
 
-    #lang-hint {
-      font-size: 22px;
-      color: #f5f5f5;
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
+#lang-hint {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  color: #f1f5f9;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  white-space: nowrap;
+}
+
+.lang-grid {
+  width: 100%;
+  max-width: 340px;
+}
+
+.lang-grid button {
+  height: 48px;
+}
+
 
     #lang-hint.fade {
       opacity: 0;
@@ -139,40 +158,48 @@
 
     .lang-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
       gap: 14px;
+      margin-top: 14px;
       width: 100%;
-      max-width: 360px;
-      margin-top: 6px;
+      max-width: 340px;
     }
 
     .lang-grid button {
-      background: transparent;
+      background: rgba(255,255,255,0.96);
+      color: #0b0b0b;
       border: none;
-      padding: 0;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
       cursor: pointer;
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.35),
+        inset 0 0 0 1px rgba(0,0,0,0.06);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
     }
 
-    .lang-grid img {
-      width: 100%;
-      height: 56px;
-      display: block;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    .lang-grid button:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 36px rgba(0,0,0,0.45),
+        0 0 0 2px rgba(249,115,22,0.35);
     }
 
-    .lang-grid button:hover img {
-      transform: scale(1.04);
-      box-shadow: 0 10px 26px rgba(255,140,26,0.45);
-    }
-
-    /* ===== SOCIAL PLACEHOLDER ===== */
+    /* ===== SOCIAL POSITION ===== */
 
     #social-placeholder {
       position: fixed;
-      bottom: 18px;
+      bottom: 22px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 20;
+      z-index: 10;
     }
   </style>
 </head>
@@ -187,33 +214,21 @@
     <div class="visual">
       <div class="visual-glow"></div>
       <div class="visual-media">
-        <img src="/assets/images/logo.png" alt="Daatsiin Tsamkhag Logo">
+        <img src="/images/logo.png" alt="Daatsiin Tsamkhag Logo">
       </div>
     </div>
 
     <div class="hint-wrap">
-      <div id="lang-hint">Hello, please select your language</div>
+      <div id="lang-hint">WELCOME</div>
     </div>
 
     <div class="lang-grid">
-      <button onclick="navigateWithFade('/pages/en/')">
-        <img src="/assets/lang/en.svg" alt="English">
-      </button>
-      <button onclick="navigateWithFade('/pages/mn/')">
-        <img src="/assets/lang/mn.svg" alt="Монгол">
-      </button>
-      <button onclick="navigateWithFade('/pages/ja/')">
-        <img src="/assets/lang/ja.svg" alt="日本語">
-      </button>
-      <button onclick="navigateWithFade('/pages/ko/')">
-        <img src="/assets/lang/ko.svg" alt="한국어">
-      </button>
-      <button onclick="navigateWithFade('/pages/zh/')">
-        <img src="/assets/lang/zh.svg" alt="中文">
-      </button>
-      <button onclick="navigateWithFade('/pages/ru/')">
-        <img src="/assets/lang/ru.svg" alt="Русский">
-      </button>
+      <button onclick="navigateWithFade('/en')">English</button>
+      <button onclick="navigateWithFade('/mn')">Монгол</button>
+      <button onclick="navigateWithFade('/ja')">日本語</button>
+      <button onclick="navigateWithFade('/ko')">한국어</button>
+      <button onclick="navigateWithFade('/zh')">中文</button>
+      <button onclick="navigateWithFade('/ru')">Русский</button>
     </div>
 
   </div>
@@ -222,8 +237,6 @@
 <div id="social-placeholder"></div>
 
 <script>
-  /* ===== MESSAGE ROTATION ===== */
-
   const messages = [
     "Hello, please select your language",
     "Сайн байна уу, Та хэлээ сонгоно уу",
@@ -234,28 +247,24 @@
   ];
 
   const hint = document.getElementById("lang-hint");
-  let i = 0;
+  let index = 0;
 
   setInterval(() => {
     hint.classList.add("fade");
     setTimeout(() => {
-      hint.textContent = messages[i];
+      hint.textContent = messages[index];
       hint.classList.remove("fade");
-      i = (i + 1) % messages.length;
+      index = (index + 1) % messages.length;
     }, 450);
   }, 2800);
-
-  /* ===== PAGE TRANSITION ===== */
 
   function navigateWithFade(url) {
     const overlay = document.getElementById("page-transition");
     overlay.style.opacity = "1";
     setTimeout(() => {
       window.location.href = url;
-    }, 400);
+    }, 350);
   }
-
-  /* ===== SOCIAL COMPONENT LOAD ===== */
 
   fetch("/components/social-btn/social-btn.html")
     .then(r => r.text())
@@ -266,3 +275,4 @@
 
 </body>
 </html>
+
