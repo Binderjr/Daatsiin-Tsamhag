@@ -1,0 +1,17 @@
+.social-btn-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 40;
+}
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+}
