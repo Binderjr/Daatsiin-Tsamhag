@@ -10,6 +10,7 @@
 
   <!-- Components -->
   <link rel="stylesheet" href="/components/social-btn/social-btn.css">
+  <link rel="stylesheet" href="/components/social-btn/social-btn.html">
 
   <style>
     :root {
@@ -294,12 +295,12 @@
     fetch("/components/social-btn/social-btn.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("social-btn-root").innerHTML = html;
+      document.getElementById("social-btn-wrap").innerHTML = html;
     });
 </script>
 
 <div id="social-placeholder"></div>
-<div id="social-btn-root"></div>
+<div id="social-btn-wrap"></div>
 <footer class="site-footer">
   Daatsiin Tsamkhag Group © 2025
 </footer>
