@@ -1,17 +1,78 @@
-.social-btn-container {
+/* ===============================
+   SOCIAL BUTTONS COMPONENT
+================================ */
+
+/* wrapper injected into index */
+.social-btn-wrap {
   position: fixed;
-  bottom: 24px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 16px;
+  gap: 14px;
   z-index: 40;
 }
+
+/* base button */
 .social-btn {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: white;
+  background: rgba(255,255,255,0.92);
   display: grid;
   place-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+/* icon */
+.social-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+/* glow layer */
+.social-btn::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,140,0,0.55),
+    transparent 70%
+  );
+  filter: blur(14px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: -1;
+}
+
+/* hover reaction */
+.social-btn:hover {
+  transform: scale(1.06);
+}
+
+.social-btn:hover::after {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* mobile spacing refinement */
+@media (max-width: 600px) {
+  .social-btn-wrap {
+    bottom: 18px;
+    gap: 12px;
+  }
+
+  .social-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .social-btn img {
+    width: 20px;
+    height: 20px;
+  }
 }

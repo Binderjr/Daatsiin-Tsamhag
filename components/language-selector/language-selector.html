@@ -1,0 +1,39 @@
+<!-- GLOBAL LANGUAGE SELECTOR COMPONENT -->
+
+<div class="language-selector">
+
+  <!-- Global Icon Button -->
+  <button class="global-btn" onclick="toggleLang()">
+    <img src="/images/global.png" alt="Select language">
+  </button>
+
+  <!-- Floating Language Panel -->
+  <div class="panel" id="langPanel">
+
+    <button onclick="navigateWithFade('/en')">
+      <img src="/images/en.png" alt="English">
+    </button>
+
+    <button onclick="navigateWithFade('/mn')">
+      <img src="/images/mn.png" alt="Монгол">
+    </button>
+
+    <button onclick="navigateWithFade('/jp')">
+      <img src="/images/jp.png" alt="日本語">
+    </button>
+
+    <button onclick="navigateWithFade('/ko')">
+      <img src="/images/ko.png" alt="한국어">
+    </button>
+
+    <button onclick="navigateWithFade('/zh')">
+      <img src="/images/zh.png" alt="中文">
+    </button>
+
+    <button onclick="navigateWithFade('/ru')">
+      <img src="/images/ru.png" alt="Русский">
+    </button>
+
+  </div>
+
+</div>
