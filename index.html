@@ -135,35 +135,56 @@
       transform: translateY(6px);
     }
 
-    /* ===== LANGUAGE GRID ===== */
 
-    .lang-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      width: 100%;
-      max-width: 360px;
-      margin-top: 6px;
-    }
 
-    .lang-grid button {
-      background: transparent;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-    }
+/* ===== LANGUAGE GRID ===== */
 
-    .lang-grid img {
-      width: 100%;
-      height: 56px;
-      display: block;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+  margin-top: 10px;
+}
 
-    .lang-grid button:hover img {
-      transform: scale(1.04);
-      box-shadow: 0 10px 26px rgba(255,140,26,0.45);
-    }
+/* Button container */
+.lang-grid button {
+  background: linear-gradient(
+    180deg,
+    #f9fafb,
+    #eef0f3
+  );
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 12px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* PNG image */
+.lang-grid img {
+  width: 100%;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hover reaction */
+.lang-grid button:hover {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f3f4f6
+  );
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
 
     /* ===== SOCIAL PLACEHOLDER ===== */
 
@@ -192,7 +213,7 @@
     </div>
 
     <div class="hint-wrap">
-      <div id="lang-hint">Hello, please select your language</div>
+      <div id="lang-hint">DAATSIIN TSAMKHAG GROUP LLC</div>
     </div>
 
     <div class="lang-grid">
