@@ -1,5 +1,35 @@
 <footer class="site-footer">
-  <div class="footer-inner">
-    <span>Daatsiin Tsamkhag Group © <span id="year"></span></span>
+  <div class="footer-top" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <div class="footer-logo-desc" style="flex: 1 1 300px; max-width: 300px;">
+      <h2>DAATSIIN<span class="highlight">TSAMKHAG</span></h2>
+      <p>
+        Building the future with precision, integrity, and excellence. Your trusted partner in commercial and residential development.
+      </p>
+    </div>
+
+    <div class="footer-column" style="flex: 1 1 300px; max-width: 300px;">
+      <h4>CONTACT US</h4>
+      <ul class="contact-info" style="list-style: none; padding: 0;">
+        <li><span class="icon">📍</span> BAYANZURKH DISTRICT<br>SHINE AMGALAN B2, SUITE 1601<br>ULAANBAATAR, UB 13301</li>
+        <li><span class="icon">📞</span> +976 7766-0933</li>
+        <li><span class="icon">✉️</span> info@daatsiintsamkhag.mn</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <p>© <span id="current-year"></span> Daatsiin Tsamkhag Group LLC. All rights reserved.</p>
+
+    <div class="social-icons">
+      <social-btn platform="facebook"></social-btn>
+      <social-btn platform="twitter"></social-btn>
+      <social-btn platform="linkedin"></social-btn>
+    </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
