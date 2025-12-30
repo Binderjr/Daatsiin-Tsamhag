@@ -53,3 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const yearEl = document.getElementById("footer-year");
+yearEl.textContent = new Date().getFullYear();
