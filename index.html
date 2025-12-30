@@ -1,360 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #1a1a1a, #ce7328 65%);
-    font-family: "Inter Tight", sans-serif;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .page-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer {
-    background: #1f3a5a;
-    color: rgba(255,255,255,0.75);
-  }
-</style>
-
-<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-
   <meta charset="UTF-8" />
   <title>Daatsiin Tsamkhag Group LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
   <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <!-- Components -->
-   <link rel="preload" href="/components/footer/footer.css" as="style">
-<link rel="preload" href="/components/social-btn/social-btn.css" as="style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+  <!-- Component preloads -->
+  <link rel="preload" href="/components/footer/footer.css" as="style">
+  <link rel="preload" href="/components/social-btn/social-btn.css" as="style">
 
-  <style>
-    :root {
-      --bg: #ce7328;
-      --brand-orange: #ff8c1a;
-      --white: #ffffff;
-    }
-
- body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(
-    circle at top,
-    #1a1a1a,
-    var(--bg) 65%
-  );
-  font-family: "Inter Tight", sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-    /* ===== TRANSITION OVERLAY ===== */
-
-    #page-transition {
-      position: fixed;
-      inset: 0;
-      background: var(--white);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      z-index: 999;
-    }
-
-    /* ===== STAGE ===== */
-
-    .stage {
-      width: min(520px, 92vw);
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .logo-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-    }
-
-    /* ===== LOGO ===== */
-
-    .visual {
-      position: relative;
-      width: clamp(180px, 42vw, 240px);
-      aspect-ratio: 1 / 1;
-      border-radius: 28%;
-      display: grid;
-      place-items: center;
-    }
-
-    .visual-glow {
-      position: absolute;
-      inset: -20px;
-      border-radius: 32%;
-      background: radial-gradient(
-        circle,
-        rgba(255,140,26,0.6),
-        transparent 70%
-      );
-      filter: blur(22px);
-      opacity: 0.65;
-      transition: transform 0.35s ease, opacity 0.35s ease;
-    }
-
-    .visual-media {
-      background: var(--white);
-      border-radius: 28%;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-      position: relative;
-      z-index: 1;
-      transition: transform 0.35s ease;
-    }
-
-    .visual img {
-      width: 85%;
-      height: auto;
-    }
-
-    .visual:hover .visual-glow {
-      opacity: 1;
-      transform: scale(1.15);
-    }
-
-    .visual:hover .visual-media {
-      transform: scale(1.03);
-    }
-
-    /* ===== MESSAGE ===== */
-
-    .hint-wrap {
-      height: 64px;
-      display: grid;
-      place-items: center;
-    }
-
-    #lang-hint {
-      font-size: 22px;
-      color: #f5f5f5;
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-
-    #lang-hint.fade {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-
-
-
-/* ===== LANGUAGE GRID ===== */
-
-.lang-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  width: 100%;
-  max-width: 360px;
-  margin-top: 10px;
-}
-
-/* Button container */
-.lang-grid button {
-  background: linear-gradient(
-    180deg,
-    #f9fafb,
-    #eef0f3
-  );
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 8px;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
-}
-
-/* PNG image */
-.lang-grid img {
-  width: 100%;
-  height: 36px;
-  object-fit: contain;
-  display: block;
-}
-
-.site-footer {
-  position: fixed;
-  bottom: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.02em;
-  z-index: 30;
-  pointer-events: none;
-}
-
-.preload {
-  opacity: 0;
-}
-
-body {
-  transition: opacity 0.25s ease;
-}
-
-/* Hover reaction */
-.lang-grid button:hover {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #f3f4f6
-  );
-  box-shadow:
-    0 10px 26px rgba(0,0,0,0.15),
-    0 0 0 1px rgba(0,0,0,0.06);
-  transform: translateY(-1px);
-}
-
-    /* ===== SOCIAL PLACEHOLDER ===== */
-
-    #social-placeholder {
-      position: fixed;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-    }
-  </style>
+  <!-- Main styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 <body class="preload">
 
-<div id="footer-placeholder"></div>
-<div id="page-transition"></div>
+  <div id="footer-placeholder"></div>
+  <div id="page-transition"></div>
 
-<main class="page-content"></main>
-<div class="stage">
-  <div class="logo-block">
+  <main class="page-content">
+    <div class="stage">
+      <div class="logo-block">
 
-    <div class="visual">
-      <div class="visual-glow"></div>
-      <div class="visual-media">
-        <img src="/assets/images/logo.png" alt="Daatsiin Tsamkhag Logo">
+        <div class="visual">
+          <div class="visual-glow"></div>
+          <div class="visual-media">
+            <img src="/assets/images/logo.png" alt="Daatsiin Tsamkhag Logo">
+          </div>
+        </div>
+
+        <div class="hint-wrap">
+          <div id="lang-hint">DAATSIIN TSAMKHAG GROUP LLC</div>
+        </div>
+
+        <div class="lang-grid">
+          <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
+            <img src="/assets/lang/en.png" alt="English">
+          </button>
+          <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
+            <img src="/assets/lang/mn.png" alt="Монгол">
+          </button>
+          <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
+            <img src="/assets/lang/jp.png" alt="日本語">
+          </button>
+          <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
+            <img src="/assets/lang/ko.png" alt="한국어">
+          </button>
+          <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
+            <img src="/assets/lang/zh.png" alt="中文">
+          </button>
+          <button onclick="navigateWithFade('/pages/ru/')">
+            <img src="/assets/lang/ru.png" alt="Русский">
+          </button>
+        </div>
+
       </div>
     </div>
+  </main>
 
-    <div class="hint-wrap">
-      <div id="lang-hint">DAATSIIN TSAMKHAG GROUP LLC</div>
-    </div>
+  <div id="social-placeholder"></div>
 
-    <div class="lang-grid">
-      <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
-        <img src="/assets/lang/en.png" alt="English">
-      </button>
-      <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
-        <img src="/assets/lang/mn.png" alt="Монгол">
-      </button>
-      <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
-        <img src="/assets/lang/jp.png" alt="日本語">
-      </button>
-      <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
-        <img src="/assets/lang/ko.png" alt="한국어">
-      </button>
-      <button onclick="navigateWithFade('https://daatsiintsamkhag.mn/')">
-        <img src="/assets/lang/zh.png" alt="中文">
-      </button>
-      <button onclick="navigateWithFade('/pages/ru/')">
-        <img src="/assets/lang/ru.png" alt="Русский">
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<div id="social-placeholder"></div>
-
-<script>
-  /* ===== MESSAGE ROTATION ===== */
-
-  const messages = [
-    "Hello, please select your language",
-    "Сайн байна уу, Та хэлээ сонгоно уу",
-    "こんにちは、言語を選択してください",
-    "안녕하세요, 언어를 선택하세요",
-    "你好，请选择你的语言",
-    "Привет, выберите язык"
-  ];
-
-  const hint = document.getElementById("lang-hint");
-  let i = 0;
-
-  setInterval(() => {
-    hint.classList.add("fade");
-    setTimeout(() => {
-      hint.textContent = messages[i];
-      hint.classList.remove("fade");
-      i = (i + 1) % messages.length;
-    }, 450);
-  }, 2800);
-
-  /* ===== PAGE TRANSITION ===== */
-
-  function navigateWithFade(url) {
-    const overlay = document.getElementById("page-transition");
-    overlay.style.opacity = "1";
-    setTimeout(() => {
-      window.location.href = url;
-    }, 400);
-  }
-
-fetch("/components/footer/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer-placeholder").innerHTML = html;
-
-    const css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "/components/footer/footer.css";
-    document.head.appendChild(css);
-
-    const js = document.createElement("script");
-    js.src = "/components/footer/footer.js";
-    document.body.appendChild(js);
-  });
-
-  window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-});
-
-
-</script>
-</main>
+  <!-- Main script -->
+  <script src="script.js"></script>
 </body>
 </html>
