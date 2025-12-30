@@ -307,14 +307,6 @@ fetch("/components/footer/footer.html")
     document.body.appendChild(js);
   });
 
-
-  /* ===== SOCIAL COMPONENT LOAD ===== */
-
-    fetch("/components/social-btn/social-btn.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("social-btn-wrap").innerHTML = html;
-    });
 </script>
 
 <div id="footer-placeholder"></div>
