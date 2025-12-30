@@ -29,23 +29,17 @@ function navigateWithFade(url) {
   }, 400);
 }
 
-/* Footer loader */
-fetch("/components/footer/footer.html")
+fetch("/components/social-btn/social-btn.html")
   .then(res => res.text())
   .then(html => {
-    document.getElementById("footer-placeholder").innerHTML = html;
+    document.getElementById("social-placeholder").innerHTML = html;
 
     const css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = "/components/footer/footer.css";
+    css.href = "/components/social-btn/social-btn.css";
     document.head.appendChild(css);
 
     const js = document.createElement("script");
-    js.src = "/components/footer/footer.js";
+    js.src = "/components/social-btn/social-btn.js";
     document.body.appendChild(js);
   });
-
-/* Initial fade-in */
-window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-});
