@@ -56,3 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const yearEl = document.getElementById("footer-year");
 yearEl.textContent = new Date().getFullYear();
+
+
+document.querySelectorAll('.lang-grid button').forEach(btn => {
+  const lang = btn.getAttribute('data-lang');
+  if (lang) {
+    btn.addEventListener('click', () => {
+      window.location.href = `/pages/homepage/homepage.html?lang=${lang}`;
+    });
+  } else {
+    // fallback for buttons with data-url
+    const url = btn.getAttribute('data-url');
+    if (url) {
+      btn.addEventListener('click', () => {
+        window.location.href = url;
+      });
+    }
+  }
+});
