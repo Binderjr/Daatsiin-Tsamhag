@@ -61,10 +61,11 @@
 
 /* mobile spacing refinement */
 @media (max-width: 600px) {
-  .social-btn-wrap {
-    bottom: 18px;
-    gap: 12px;
-  }
+ .social-btn-wrap {
+  position: static;
+  display: flex;
+  gap: 12px;
+}
 
   .social-btn {
     width: 42px;
