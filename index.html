@@ -220,6 +220,13 @@
   pointer-events: none;
 }
 
+.preload {
+  opacity: 0;
+}
+
+body {
+  transition: opacity 0.25s ease;
+}
 
 /* Hover reaction */
 .lang-grid button:hover {
@@ -247,6 +254,8 @@
 </head>
 
 <body>
+<body class="preload">
+
 <div id="footer-placeholder"></div>
 <div id="page-transition"></div>
 
@@ -339,6 +348,11 @@ fetch("/components/footer/footer.html")
     js.src = "/components/footer/footer.js";
     document.body.appendChild(js);
   });
+
+  window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+});
+
 
 </script>
 </main>
