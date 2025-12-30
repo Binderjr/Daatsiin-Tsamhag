@@ -31,14 +31,11 @@ function navigateWithFade(url) {
 
 fetch("/components/social-btn/social-btn.html")
   .then(res => res.text())
-  .then(html => {
-    document.getElementById("social-placeholder").innerHTML = html;
-
+  .then(html => {document.getElementById("social-placeholder").innerHTML = html;
     const css = document.createElement("link");
     css.rel = "stylesheet";
     css.href = "/components/social-btn/social-btn.css";
     document.head.appendChild(css);
-
     const js = document.createElement("script");
     js.src = "/components/social-btn/social-btn.js";
     document.body.appendChild(js);
