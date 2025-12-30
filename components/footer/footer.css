@@ -3,6 +3,7 @@
   color: rgba(255,255,255,0.75);
   padding: 64px 40px 24px;
   font-size: 14px;
+  position: relative;
 }
 
 .footer-container {
