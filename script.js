@@ -60,17 +60,15 @@ yearEl.textContent = new Date().getFullYear();
 
 document.querySelectorAll('.lang-grid button').forEach(btn => {
   const lang = btn.getAttribute('data-lang');
-  if (lang) {
-    btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent instant navigation
+
+    // Add fade-out class
+    document.body.classList.add('fade-out');
+
+    // After transition, navigate to homepage
+    setTimeout(() => {
       window.location.href = `/pages/homepage/homepage.html?lang=${lang}`;
-    });
-  } else {
-    // fallback for buttons with data-url
-    const url = btn.getAttribute('data-url');
-    if (url) {
-      btn.addEventListener('click', () => {
-        window.location.href = url;
-      });
-    }
-  }
+    }, 500); // match CSS transition duration
+  });
 });
