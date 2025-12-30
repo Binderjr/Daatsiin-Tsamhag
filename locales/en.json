@@ -1,0 +1,48 @@
+
+{
+  "meta.title": "Marketplace",
+  "meta.description": "Buy and sell items easily",
+ 
+  
+  "nav.home": "Homepage",
+  "nav.about": "Company Profile",
+  "nav.jobs": "Open Positions",
+  "nav.activities": "Operations",
+  "nav.contact": "Contact",
+  "nav.login": "Login",
+
+  "hero.title": "Buy and Sell Easily",
+  "hero.subtitle": "Trusted marketplace for everyone",
+  "hero.cta": "Post an Ad",
+
+  "search.placeholder": "Search products, services, jobs",
+
+  "category.cars": "Cars",
+  "category.real_estate": "Real Estate",
+  "category.jobs": "Jobs",
+  "category.services": "Services",
+  "category.electronics": "Electronics",
+
+  "listing.price": "Price",
+  "listing.location": "Location",
+  "listing.posted": "Posted",
+  "listing.views": "Views",
+
+  "form.title": "Title",
+  "form.description": "Description",
+  "form.price": "Price",
+  "form.submit": "Submit",
+  "form.cancel": "Cancel",
+
+  "auth.login": "Login",
+  "auth.register": "Create Account",
+  "auth.logout": "Logout",
+
+  "profile.my_ads": "My Ads",
+  "profile.settings": "Settings",
+
+  "footer.about": "About Us",
+  "footer.terms": "Terms of Service",
+  "footer.privacy": "Privacy Policy",
+  "footer.contact": "Contact"
+}
