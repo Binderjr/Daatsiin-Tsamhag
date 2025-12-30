@@ -215,7 +215,7 @@
 </head>
 
 <body>
-
+<div id="footer-placeholder"></div>
 <div id="page-transition"></div>
 
 <div class="stage">
@@ -296,12 +296,16 @@ fetch("/components/footer/footer.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("footer-placeholder").innerHTML = html;
-  });
 
-const footerCss = document.createElement("link");
-footerCss.rel = "stylesheet";
-footerCss.href = "/components/footer/footer.css";
-document.head.appendChild(footerCss);
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "/components/footer/footer.css";
+    document.head.appendChild(css);
+
+    const js = document.createElement("script");
+    js.src = "/components/footer/footer.js";
+    document.body.appendChild(js);
+  });
 
 
   /* ===== SOCIAL COMPONENT LOAD ===== */
