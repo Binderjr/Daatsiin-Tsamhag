@@ -1,4 +1,7 @@
-/* Message rotation */
+/* =========================
+   Message rotation
+========================= */
+
 const messages = [
   "Hello, please select your language",
   "Сайн байна уу, Та хэлээ сонгоно уу",
@@ -8,23 +11,45 @@ const messages = [
   "Привет, выберите язык"
 ];
 
-const hint = document.getElementById("lang-hint");
-let index = 0;
+let messageIndex = 0;
+let hintElement = null;
 
-setInterval(() => {
-  hint.classList.add("fade");
+function rotateMessage() {
+  hintElement.classList.add("fade");
+
   setTimeout(() => {
-    hint.textContent = messages[index];
-    hint.classList.remove("fade");
-    index = (index + 1) % messages.length;
+    hintElement.textContent = messages[messageIndex];
+    hintElement.classList.remove("fade");
+    messageIndex = (messageIndex + 1) % messages.length;
   }, 450);
-}, 2800);
+}
 
-/* Page transition */
+/* =========================
+   Page transition
+========================= */
+
 function navigateWithFade(url) {
-  const overlay = document.getElementById("page-transition");
-  overlay.style.opacity = "1";
+  document.body.classList.add("fade-out");
+
   setTimeout(() => {
     window.location.href = url;
   }, 400);
 }
+
+/* =========================
+   Initialization
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.remove("preload");
+
+  hintElement = document.getElementById("lang-hint");
+
+  setInterval(rotateMessage, 2800);
+
+  document.querySelectorAll(".lang-grid button").forEach(button => {
+    button.addEventListener("click", () => {
+      navigateWithFade(button.dataset.url);
+    });
+  });
+});

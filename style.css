@@ -11,10 +11,15 @@ body {
   font-family: "Inter Tight", sans-serif;
   display: flex;
   flex-direction: column;
-  transition: opacity 0.25s ease;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 
-.preload {
+body.preload {
+  opacity: 0;
+}
+
+body.fade-out {
   opacity: 0;
 }
 
@@ -25,18 +30,6 @@ body {
   justify-content: center;
 }
 
-/* Transition overlay */
-#page-transition {
-  position: fixed;
-  inset: 0;
-  background: var(--white);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 999;
-}
-
-/* Stage */
 .stage {
   width: min(520px, 92vw);
   aspect-ratio: 1 / 1;
@@ -54,7 +47,6 @@ body {
   width: 100%;
 }
 
-/* Logo */
 .visual {
   position: relative;
   width: clamp(180px, 42vw, 240px);
@@ -101,7 +93,6 @@ body {
   transform: scale(1.03);
 }
 
-/* Message */
 .hint-wrap {
   height: 64px;
   display: grid;
@@ -119,7 +110,6 @@ body {
   transform: translateY(6px);
 }
 
-/* Language grid */
 .lang-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -151,7 +141,6 @@ body {
   display: block;
 }
 
-/* Footer */
 .site-footer {
   position: fixed;
   bottom: 6px;
@@ -164,7 +153,6 @@ body {
   pointer-events: none;
 }
 
-/* Social placeholder */
 #social-placeholder {
   position: fixed;
   bottom: 18px;
