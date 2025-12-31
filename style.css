@@ -184,6 +184,8 @@ body.preload {
 }
 
 body {
+  background-color: #ce7328; /* or #ce7328 if you want the orange from your variables */
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+
