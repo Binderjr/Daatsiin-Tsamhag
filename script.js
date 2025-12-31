@@ -15,60 +15,70 @@ let messageIndex = 0;
 let hintElement = null;
 
 function rotateMessage() {
+  if (!hintElement) return;
+
+  // 1. Start fade out
   hintElement.classList.add("fade");
 
+  // 2. Wait for CSS transition, change text, fade in
   setTimeout(() => {
     hintElement.textContent = messages[messageIndex];
     hintElement.classList.remove("fade");
     messageIndex = (messageIndex + 1) % messages.length;
-  }, 450);
+  }, 450); // Ensure this matches your CSS transition time for opacity
 }
 
 /* =========================
-   Page transition
-========================= */
-
-function navigateWithFade(url) {
-  document.body.classList.add("fade-out");
-
-  setTimeout(() => {
-    window.location.href = url;
-  }, 400);
-}
-
-/* =========================
-   Initialization
+   Initialization & Logic
 ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Remove Preload
   document.body.classList.remove("preload");
 
+  // 2. Setup Year
+  const yearEl = document.getElementById("footer-year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // 3. Setup Message Rotation
   hintElement = document.getElementById("lang-hint");
+  if (hintElement) {
+    setInterval(rotateMessage, 2800);
+  }
 
-  setInterval(rotateMessage, 2800);
+  // 4. Unified Button Logic
+  const buttons = document.querySelectorAll(".lang-grid button");
+  
+  buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault(); // Good practice
 
-  document.querySelectorAll(".lang-grid button").forEach(button => {
-    button.addEventListener("click", () => {
-      navigateWithFade(button.dataset.url);
+      // Visual: Trigger fade-out animation
+      document.body.classList.add("fade-out");
+
+      // Logic: Determine where to go
+      const directUrl = button.getAttribute('data-url');
+      const langCode = button.getAttribute('data-lang');
+      
+      let targetUrl = '';
+
+      if (directUrl) {
+        // Priority 1: If the HTML has a specific URL (like your EN/MN buttons)
+        targetUrl = directUrl;
+      } else if (langCode) {
+        // Priority 2: If it only has a lang code (like your JA button)
+        targetUrl = `/pages/homepage/homepage.html?lang=${langCode}`;
+      } else {
+        // Fallback
+        targetUrl = '/'; 
+      }
+
+      // Wait for animation, then go
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 500); // Matches CSS .fade-out transition duration
     });
-  });
-});
-
-const yearEl = document.getElementById("footer-year");
-yearEl.textContent = new Date().getFullYear();
-
-
-document.querySelectorAll('.lang-grid button').forEach(btn => {
-  const lang = btn.getAttribute('data-lang');
-  btn.addEventListener('click', (e) => {
-    e.preventDefault(); // prevent instant navigation
-
-    // Add fade-out class
-    document.body.classList.add('fade-out');
-
-    // After transition, navigate to homepage
-    setTimeout(() => {
-      window.location.href = `/pages/homepage/homepage.html?lang=${lang}`;
-    }, 500); // match CSS transition duration
   });
 });
