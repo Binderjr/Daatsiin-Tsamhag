@@ -1,0 +1,60 @@
+.about-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 20px 120px;
+  color: #ffffff;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.about-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.about-hero p {
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.about-section {
+  margin-bottom: 48px;
+}
+
+.about-section h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.about-section p,
+.about-section li {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-actions {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}

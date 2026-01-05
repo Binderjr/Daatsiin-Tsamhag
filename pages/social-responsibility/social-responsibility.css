@@ -1,0 +1,50 @@
+.csr-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 120px;
+  color: #ffffff;
+}
+
+.csr-hero {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.csr-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.csr-hero p {
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.csr-section {
+  margin-bottom: 48px;
+}
+
+.csr-section h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.csr-section p {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.csr-actions {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
