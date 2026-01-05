@@ -1,118 +1,94 @@
 .footer {
-  background: #1f3a5a;
-  color: rgba(255,255,255,0.75);
-  padding: 64px 40px 24px;
+  background: #121212; /* Neutral dark for a premium industrial feel */
+  color: rgba(255, 255, 255, 0.75);
+  padding: 80px 40px 30px; /* Increased top padding for better breathing room */
   font-size: 14px;
   position: relative;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-container {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
+  grid-template-columns: 1.5fr 1fr 1fr; /* Custom widths for better balance */
+  gap: 60px;
 }
 
 .footer-title {
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 900;
   color: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
 }
 
 .footer-desc {
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 360px;
 }
 
 .footer-heading {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 18px;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: #ff8c1a;
+  margin-bottom: 24px;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .contact-item {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   line-height: 1.5;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-item:hover {
-  color: #ff8c1a;
+  color: #ff8c1a; /* Your Brand Orange */
+  transform: translateX(4px); /* Subtle interaction */
 }
 
+/* Merged and Improved Bottom Bar */
 .footer-bottom {
-  margin-top: 48px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  text-align: left;
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-.footer-bottom {
-  margin-top: 48px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  max-width: 1280px;
+  margin: 60px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-#footer-social {
+#social-btn-wrap {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
-/* Mobile */
+/* Responsive Logic */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
 @media (max-width: 640px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  
   .footer-bottom {
-    flex-direction: column;
-    gap: 14px;
+    flex-direction: column-reverse; /* Icons on top for mobile */
+    gap: 20px;
+    text-align: center;
   }
 }
