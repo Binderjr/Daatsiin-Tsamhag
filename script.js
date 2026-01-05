@@ -82,3 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const overlay = document.getElementById("transition-overlay");
+
+overlay.classList.add("active");
+
+setTimeout(() => {
+  window.location.href = targetUrl;
+}, 500);

@@ -226,3 +226,17 @@ body.fade-out {
   transform: translateX(-50%);
   z-index: 20;
 }
+
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 999;
+}
+
+.transition-overlay.active {
+  opacity: 1;
+}
